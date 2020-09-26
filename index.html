@@ -6,23 +6,26 @@
 </head>
 <body>
 
-<!--Modified https://gist.github.com/pixelbart/d34173e01e7f7357be6c3199010b389e to work for GIFs -->
+<!--Modified https://gist.github.com/pixelbart/d34173e01e7f7357be6c3199010b389e; would be nice to add alt attribute but these aren't often provided -->
+
 <script>
 $(document).ready( function() {
-		var subreddit = 'rarepuppers';
+  
+		var subreddit = 'Zoomies';
 		var aRandomNum = Math.floor((Math.random() * 25) + 1); 		
 		$.getJSON('http://www.reddit.com/r/'+subreddit+'.json?jsonp=?&show=all&limit=25', function(data) {
 			$.each(data.data.children, function(i,item){
 				if (i == aRandomNum) {
-					$("<img/>").attr("src", item.data.url).appendTo("#zoomframe");
+					$("<img/>").attr("src", item.data.thumbnail).appendTo("#zoomframe");
 					return false;
 				}
 			});
 		});
+		
 });
 </script>
 
-<div id="zoomframe"></div>
+<div id="zoomframe" alt="randomly selected GIF of dog doing a zoom"></div>
 
 </body>
 </html>
