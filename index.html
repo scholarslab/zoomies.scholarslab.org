@@ -6,13 +6,14 @@
 </head>
 <body>
 
-<!--Modified https://gist.github.com/pixelbart/d34173e01e7f7357be6c3199010b389e; would be nice to add alt attribute but these aren't often provided -->
+<!--Modified https://gist.github.com/pixelbart/d34173e01e7f7357be6c3199010b389e
+Would be nice to add alt attribute, but these aren't often provided
+Working on local but not on live site fixed via consule => turning off Firefox advanced tracking protection-->
 
 <script>
 $(document).ready( function() {
-  
-		var subreddit = 'Zoomies';
-		var aRandomNum = Math.floor((Math.random() * 25) + 1); 		
+	var subreddit = 'Zoomies';
+	var aRandomNum = Math.floor((Math.random() * 25) + 1); 		
 		$.getJSON('https://www.reddit.com/r/'+subreddit+'.json?jsonp=?&show=all&limit=25', function(data) {
 			$.each(data.data.children, function(i,item){
 				if (i == aRandomNum) {
