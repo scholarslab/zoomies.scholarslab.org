@@ -8,7 +8,8 @@
 
 <!--Modified https://gist.github.com/pixelbart/d34173e01e7f7357be6c3199010b389e
 Would be nice to add alt attribute, but these aren't often provided
-Working on local but not on live site fixed via consule => turning off Firefox advanced tracking protection-->
+Working on local but not on live site fixed via consule => turning off Firefox advanced tracking protection
+No way to get audio+video together because of Reddit's imposed constraints to avoid hotlinking-->
 
 <script>
 $(document).ready( function() {
@@ -17,7 +18,7 @@ $(document).ready( function() {
 		$.getJSON('https://www.reddit.com/r/'+subreddit+'.json?jsonp=?&show=all&limit=25', function(data) {
 			$.each(data.data.children, function(i,item){
 				if (i == aRandomNum) {
-					$("<img/>").attr("src", item.data.thumbnail).appendTo("#zoomframe");
+					$("<video autoplay/>").attr("src", item.data.secure_media.reddit_video.fallback_url).appendTo("#zoomframe");
 					return false;
 				}
 			});
