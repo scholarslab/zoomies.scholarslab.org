@@ -24,6 +24,7 @@ video {
 body
 {
 	background-color: black;
+  overflow: hidden;
 }
 </style>
 </head>
@@ -52,7 +53,7 @@ $(document).ready( function() {
           } else {
             return;
           }
-					$("<video loop autoplay/>").attr({"src": vid, "title":title}).appendTo("#zoomlink");
+					$("<video controls loop autoplay/>").attr({"src": vid, "title":title}).appendTo("#zoomlink");
           $("#zoomlink").attr("href", link)
 					return false;
 				}
